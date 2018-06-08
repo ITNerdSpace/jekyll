@@ -5,7 +5,7 @@ author: Alexandre Dumont
 last_modified_at: '2018-06-08 23:29 +0200'
 title: Input an 8-bit value using a DIP switch
 tags: ''
-image: '/uploads/dip-switch.png'
+image: 'https://raw.githubusercontent.com/ITNerdSpace/maker/master/uploads/dip-switch.png'
 ---
 In this article, I'll show how I connected a DIP switch to input an 8-bit value to the Icezum Alhambra FPGA board (Ice40HX1k)
 
