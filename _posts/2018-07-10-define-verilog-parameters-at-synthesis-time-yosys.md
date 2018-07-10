@@ -13,10 +13,10 @@ So I came with another way.
 
 Imagine we have a design described in `top.v`. In that file, I have defined a couple of macros, that I'll use later in the code (here they represent files that will be loaded with `$readmemh()`):
 
-`
+``
 `define PROGRAM "test/test01/program"
 `define ROMFILE "test/test01/ram"
-`
+``
 
 What I'm looking for here is a way to synthesize the design so that I can pass alternative arguments, that represent alternative values (that will override the one in the Verilog code).
 
