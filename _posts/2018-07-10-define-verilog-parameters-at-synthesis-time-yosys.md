@@ -4,6 +4,8 @@ published: true
 author: Alexandre Dumont
 last_modified_at: '2018-07-10 15:44 +0200'
 title: How to define Verilog parameters at synthesis time (yosys)
+tags:
+  - Automaton
 ---
 I was looking for a way to pass parameters to Yosys (that would end up in the Verilog source code) at synthesis time.
 
@@ -169,3 +171,7 @@ I have found some alternatives (by Yosys' author, Clifford).Actually, I'm not su
 - [Override verilog parameters](https://github.com/YosysHQ/yosys/issues/132)
 
 Furthermore, in both case it would also have required me to create a yosys script template where I would then replace the variable with it's value. So I think at the end, I would also need m4 (or similar mechanism. Right now I feel happier with my approach :).
+
+## Full source
+
+I have implemented this technique in my HRM CPU project. [Here](https://github.com/adumont/hrm-cpu/commit/49c44b773ed24270388aa9cdddc6b99d45d94300)'s the commit where I add all the bits to make that work, so you can see the whole example.
