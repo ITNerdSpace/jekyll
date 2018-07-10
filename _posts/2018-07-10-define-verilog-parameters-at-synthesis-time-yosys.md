@@ -5,8 +5,6 @@ author: Alexandre Dumont
 last_modified_at: '2018-07-10 15:44 +0200'
 title: Define Verilog parameters at synthesis time (yosys)
 ---
-## Define Verilog parameters at synthesis time (with yosys)
-
 I was looking for a way to pass parameters to Yosys (that would end up in the Verilog source code) at synthesis time.
 
 Unfortunately, Yosys doesn't seem to allow any -D flag to pass parameter that would be later used in `define, like we would do in C/C++.
@@ -24,7 +22,7 @@ What I'm looking for here is a way to synthesize the design so that I can pass a
 
 Note: *Although the parameters I have here are filenames, it would be the same with any kind of parameters that we can think of.*
 
-### The Approach: top_wrapper
+## The Approach: top_wrapper
 
 The way I did it is like this:
 
@@ -89,7 +87,7 @@ Why create a wrapper instead of converting top module into the template and gene
 - `top.v` is kept practically unchanged, and is still a Verilog file (no m4 macros in it) so I can build the design from it directly if I want/need.
 - as `top.v` is a pure Verilog file, I can benefit from synthax highlighting in my favorite code editor.
 
-### Changes in Makefile
+## Changes in Makefile
 
 Now let's look at how we put that together in our Makefile.
 
@@ -149,7 +147,7 @@ $(MODULE).bin: $(MODULE).pcf $(MODULE).v $(DEPS) $(AUXFILES) build.config
 
 Notice how $(DEPS) and $(AUXFILES) are specified in the target dependencies (so it includes the top_wrapper.v and also it gets rebuild when any of them are updated, or it fails if any is missing).
 
-### How to you pass the arguments to make
+## How to you pass the arguments to make
 
 THe way to pass the value to the parameters at make time is by using the `NAME=value` format, right from the command line. For example:
 
@@ -159,7 +157,7 @@ $ make PROGRAM=test/test02/program0 ROMFILE=test/test02/ram0 bin
 
 If we run twice the same make (with the same parameter values), it won't rebuild everything (if sources haven't changed).
 
-### Alternatives
+## Alternatives
 
 I have found some alternatives (by Yosys' author, Clifford).Actually, I'm not sure if it can be considered different alternative or is it actualy the same one). They didn't work for me in that particular case
 , although they are worth keeping for future reference, as they could be useful in some other use cases.
