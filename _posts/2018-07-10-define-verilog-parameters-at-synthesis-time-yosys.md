@@ -145,9 +145,9 @@ $(MODULE).bin: $(MODULE).pcf $(MODULE).v $(DEPS) $(AUXFILES) build.config
 	icepack $(MODULE).pnr $(MODULE).bin
 ```
 
-Notice how $(DEPS) and $(AUXFILES) are specified in the target dependencies (so it includes the top_wrapper.v and also it gets rebuild when any of them are updated, or it fails if any is missing).
+Notice how `$(DEPS)` and `$(AUXFILES)` are specified in the target dependencies (so it includes the `top_wrapper.v` and also it gets rebuild when any of them are updated, or it fails if any is missing).
 
-Also, notice how $(DEPS) is placed **before** $(MODULE).v in the yosys command line. This is **very important**, because we want the wrapper to be read before out top module definition.
+Also, notice how `$(DEPS)` is placed **before** `$(MODULE).v` in the yosys command line. This is **very important**, because we want the wrapper to be read **before** out top module definition.
 
 ## How to you pass the arguments to make
 
