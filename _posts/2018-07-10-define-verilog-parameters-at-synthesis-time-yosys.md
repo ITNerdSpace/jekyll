@@ -3,7 +3,7 @@ layout: post
 published: true
 author: Alexandre Dumont
 last_modified_at: '2018-07-10 15:44 +0200'
-title: Define Verilog parameters at synthesis time (yosys)
+title: How to define Verilog parameters at synthesis time (yosys)
 ---
 I was looking for a way to pass parameters to Yosys (that would end up in the Verilog source code) at synthesis time.
 
