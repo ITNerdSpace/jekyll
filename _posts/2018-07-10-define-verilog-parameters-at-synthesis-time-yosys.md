@@ -101,13 +101,13 @@ AUXFILES=
 
 ifdef PROGRAM
   M4_OPTIONS += -D_PROGRAM_=$(PROGRAM)
-  DEPS := $(filter-out top_wrapper.v,$(DEPS)) top_wrapper.v
+  DEPS := top_wrapper.v $(filter-out top_wrapper.v,$(DEPS))
   AUXFILES += $(PROGRAM)
 endif
 
 ifdef ROMFILE
   M4_OPTIONS += -D_ROMFILE_=$(ROMFILE)
-  DEPS := $(filter-out top_wrapper.v,$(DEPS)) top_wrapper.v
+  DEPS := top_wrapper.v $(filter-out top_wrapper.v,$(DEPS))
   AUXFILES += $(ROMFILE)
 endif
 ```
@@ -138,7 +138,7 @@ Because the wrapper is added to DEPS (source files), nothing else needs to be ch
 $(MODULE).bin: $(MODULE).pcf $(MODULE).v $(DEPS) $(AUXFILES) build.config
 	
 	yosys -p "synth_ice40 -top $(MODULE) -blif $(MODULE).blif $(YOSYSOPT)" \
-              -l $(MODULE).log -q $(MODULE).v $(DEPS)  
+              -l $(MODULE).log -q $(DEPS) $(MODULE).v
 	
 	arachne-pnr -d $(MEMORY) -p $(MODULE).pcf $(MODULE).blif -o $(MODULE).pnr
 	
@@ -146,6 +146,8 @@ $(MODULE).bin: $(MODULE).pcf $(MODULE).v $(DEPS) $(AUXFILES) build.config
 ```
 
 Notice how $(DEPS) and $(AUXFILES) are specified in the target dependencies (so it includes the top_wrapper.v and also it gets rebuild when any of them are updated, or it fails if any is missing).
+
+Also, notice how $(DEPS) is placed **before** $(MODULE).v in the yosys command line. This is **very important**, because we want the wrapper to be read before out top module definition.
 
 ## How to you pass the arguments to make
 
