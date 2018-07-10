@@ -13,9 +13,10 @@ So I came with another way.
 
 Imagine we have a design described in `top.v`. In that file, I have defined a couple of macros, that I'll use later in the code (here they represent files that will be loaded with `$readmemh()`):
 
-
-    `define PROGRAM "test/test01/program"
-    `define ROMFILE "test/test01/ram"
+```verilog
+`define PROGRAM "test/test01/program"
+`define ROMFILE "test/test01/ram"
+```
 
 What I'm looking for here is a way to synthesize the design so that I can pass alternative arguments, that represent alternative values (that will override the one in the Verilog code).
 
@@ -27,7 +28,7 @@ The way I did it is like this:
 
 First, I have wrapped both `define` macros in my top.v within an `ifndef/endif` block: if they already have a value, don't set the default value (or in other words, if they are not defined yet, set them to a default value).
 
-```
+```verilog
 `ifndef PROGRAM
 `define PROGRAM "test/Year-32/program"
 `endif
@@ -39,7 +40,7 @@ First, I have wrapped both `define` macros in my top.v within an `ifndef/endif` 
 
 The next step was to create a wrapper for my `top.v` file. The wrapper would look like this:
 
-```
+```verilog
 `define PROGRAM "test/Year-01/program"
 `define ROMFILE "test/Year-01/ram"
 `include "top.v"
@@ -51,7 +52,7 @@ The thing is we need to generate this wrapper somehow. For that I chose to use `
 
 For that, I created a new file, `top_wrapper.m4` with this content:
 
-```
+```m4
 changequote([,])dnl
 `define PROGRAM "_PROGRAM_"
 `define ROMFILE "_ROMFILE_"
@@ -73,7 +74,7 @@ ERROR: Re-definition of module `\top' at...
 
 To avoid this, I enclose the whole top.v with an ifndef,define/endif block, so that it it only read once by yosys:
 
-```
+```verilog
 `ifndef __TOP_MODULE__
 `define __TOP_MODULE__
 
@@ -94,7 +95,7 @@ I have a variable DEPS that lists all my source files (dependencies).
 
 I have added this:
 
-```
+```makefile
 M4_OPTIONS=
 AUXFILES=
 
@@ -118,7 +119,7 @@ If PROGRAM (respectively ROMFILE) is defined on the command line when calling `m
 
 I then add this next block ([taken from here](https://stackoverflow.com/questions/3236145/force-gnu-make-to-rebuild-objects-affected-by-compiler-definition)), so that we'll rebuild the top_wrapper.v (and all dependent targets if the parameter (filenames) have changed), or the content of those file have changed:
 
-```
+```makefile
 .PHONY: .force
 build.config: $(AUXFILES) .force
 	@echo '$(AUXFILES)' | cmp -s - $@ || echo '$(AUXFILES)' > $@
@@ -126,14 +127,14 @@ build.config: $(AUXFILES) .force
 
 And, this will actually create the wrapper with m4:
 
-```
+```makefile
 top_wrapper.v: top_wrapper.m4 build.config
 	m4 $(M4_OPTIONS) top_wrapper.m4 > top_wrapper.v
 ```
 
 Because the wrapper is added to DEPS (source files), nothing else needs to be changed in the Makefile in respect to yosys. The same target that synthesize the design is letf unchanged:
 
-```
+```makefile
 $(MODULE).bin: $(MODULE).pcf $(MODULE).v $(DEPS) $(AUXFILES) build.config
 	
 	yosys -p "synth_ice40 -top $(MODULE) -blif $(MODULE).blif $(YOSYSOPT)" \
@@ -150,7 +151,7 @@ Notice how $(DEPS) and $(AUXFILES) are specified in the target dependencies (so 
 
 THe way to pass the value to the parameters at make time is by using the `NAME=value` format, right from the command line. For example:
 
-```
+```makefile
 $ make PROGRAM=test/test02/program0 ROMFILE=test/test02/ram0 bin
 ```
 
