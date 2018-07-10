@@ -149,7 +149,7 @@ Notice how `$(DEPS)` and `$(AUXFILES)` are specified in the target dependencies 
 
 Also, notice how `$(DEPS)` is placed **before** `$(MODULE).v` in the yosys command line. This is **very important**, because we want the wrapper to be read **before** out top module definition.
 
-## How to you pass the arguments to make
+## Now how to pass the arguments to make
 
 THe way to pass the value to the parameters at make time is by using the `NAME=value` format, right from the command line. For example:
 
