@@ -58,4 +58,4 @@ $ mosquitto_sub -h mqtt.beebotte.com -u token:token_XXXXXXXXXXXXXXXX -t ifttt/ga
 ifttt/ga {"data":[{"action":"makeme","what":"a pizza"}],"ispublic":true,"ts":1532185262619}
 ```
 
-Now we can do whatever we want, for example from Node-Red. Each time I say "ok google, make me ---" I'll receive it as a message in thie MQTT topic! Endless possibilities ahead!
+Now we can do whatever we want, for example from Node-Red. Each time I say "ok google, make me ---" I'll receive it as a message in the MQTT topic! _Endless possibilities ahead!_
