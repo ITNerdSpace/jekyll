@@ -4,8 +4,7 @@ published: true
 author: Alexandre Dumont
 last_modified_at: '2018-07-21 18:52 +0200'
 title: From Google Assistant to MQTT
-tags: ''
-image: ''
+image: '{{site.baseurl}}/images/Google Assist to MQTT.png'
 ---
 Here I want to define a custom Google Assistant action, which will recognize a phrase with an argument: "ok google, make me [a pizza]", and send both the action "makeme" and the argument ("a pizza") to an MQTT topic.
 
