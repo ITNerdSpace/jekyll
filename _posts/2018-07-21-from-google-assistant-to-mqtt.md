@@ -2,7 +2,7 @@
 layout: post
 published: true
 author: Alexandre Dumont
-last_modified_at: '2018-07-21 18:52 +0200'
+last_modified_at: '2018-07-21 19:47 +0200'
 title: From Google Assistant to MQTT
 image: /images/Google Assist to MQTT.png
 ---
