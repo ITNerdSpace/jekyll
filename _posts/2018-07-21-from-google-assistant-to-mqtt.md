@@ -28,7 +28,7 @@ Now let's enter in the channel, and take note of the token that has been assigne
 
 ![Get the channel token]({{site.baseurl}}/images/2_token.png)
 
-The key: How to subscribe to the Beebotte channel/resource via MQTT (more here https://beebotte.com/docs/mqtt, read about MQTT - Beebotte Bridge and the Considerations)
+The key: How to subscribe to the Beebotte channel/resource via MQTT
 
 - HOST: **mqtt.beebotte.com**
 - PORT: **1883**
@@ -36,6 +36,7 @@ The key: How to subscribe to the Beebotte channel/resource via MQTT (more here h
 - Password: _blank_ (don't set password)
 - TOPIC: **channel/resource**, here ifttt/ga
 
+Read more here about [MQTT - Beebotte Bridge and the Considerations](https://beebotte.com/docs/mqtt))
 
 Now back in IFFFF, I'll skip right to the point of creating the Action:
 
