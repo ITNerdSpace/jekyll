@@ -45,7 +45,7 @@ We'll choose action type Webhooks, then "Make a web request" and use these field
 - URL: https://api.beebotte.com/v1/data/publish/ifttt/ga?token=token_XXXXXXXXXXXXXXXX
 - METHOD: **POST**
 - Content Type: **application/json**
-- BODY: {"data":[{"action":"makeme","what":"{{TextField}}"}]}
+- BODY: `{"data":[{"action":"makeme","what":"{{TextField}}"}]}`
 
 What is important is the format of the body. It expects a data field, with an object. In the object, you can put whatever you want.
 
