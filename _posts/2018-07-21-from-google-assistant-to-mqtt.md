@@ -6,7 +6,7 @@ last_modified_at: '2018-07-21 18:52 +0200'
 title: From Google Assistant to MQTT
 image: /images/Google Assist to MQTT.png
 ---
-Here I want to define a custom Google Assistant action, which will recognize a phrase with an argument: "ok google, make me [a pizza]", and send both the action "makeme" and the argument ("a pizza") to an MQTT topic.
+Here I want to define a custom Google Assistant action, which will recognize a phrase with an argument: "ok google, make me [a pizza]", and send both the action "make" and the argument ("a pizza") to an MQTT topic.
 
 There's a very easy way to recognize custom phrases in Google Assistant, by using the Google Assistant and IFTTT integration: there's a Google Assistant trigger in IFTTT, which guide you to do that, I won't cover it here.
 
@@ -42,10 +42,10 @@ Now back in IFFFF, I'll skip right to the point of creating the Action:
 
 We'll choose action type Webhooks, then "Make a web request" and use these fields:
 
-- URL: https://api.beebotte.com/v1/data/publish/ifttt/ga?token=token_XXXXXXXXXXXXXXXX
+- URL: https://api.beebotte.com/v1/data/publish/**ifttt/ga**?token=token_XXXXXXXXXXXXXXXX
 - METHOD: **POST**
 - Content Type: **application/json**
-- BODY: `{"data":[{"action":"makeme","what":"{{TextField}}"}]}`
+- BODY: `{"data":[{"action":"make","what":"{{ "{{TextField"}}}}"}]}`
 
 What is important is the format of the body. It expects a data field, with an object. In the object, you can put whatever you want.
 
@@ -55,7 +55,7 @@ Here is an example of what is received on the MQTT end:
 
 ```noformat
 $ mosquitto_sub -h mqtt.beebotte.com -u token:token_XXXXXXXXXXXXXXXX -t ifttt/ga -v
-ifttt/ga {"data":[{"action":"makeme","what":"a pizza"}],"ispublic":true,"ts":1532185262619}
+ifttt/ga {"data":[{"action":"make","what":"a pizza"}],"ispublic":true,"ts":1532185262619}
 ```
 
 Now we can do whatever we want, for example from Node-Red. Each time I say "ok google, make me ---" I'll receive it as a message in the MQTT topic! _Endless possibilities ahead!_
