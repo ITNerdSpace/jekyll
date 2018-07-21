@@ -53,7 +53,9 @@ What is important is the format of the body. It expects a data field, with an ob
 
 Here is an example of what is received on the MQTT end:
 
+```noformat
 $ mosquitto_sub -h mqtt.beebotte.com -u token:token_XXXXXXXXXXXXXXXX -t ifttt/ga -v
 ifttt/ga {"data":[{"action":"makeme","what":"a pizza"}],"ispublic":true,"ts":1532185262619}
+```
 
 Now we can do whatever we want, for example from Node-Red. Each time I say "ok google, make me ---" I'll receive it as a message in thie MQTT topic! Endless possibilities ahead!
