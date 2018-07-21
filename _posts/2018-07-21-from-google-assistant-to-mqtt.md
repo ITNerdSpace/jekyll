@@ -6,9 +6,9 @@ last_modified_at: '2018-07-21 18:52 +0200'
 title: From Google Assistant to MQTT
 image: /images/Google Assist to MQTT.png
 ---
-Here I want to define a custom Google Assistant action, which will recognize a phrase with an argument: "ok google, make me [a pizza]", and send both the action "make" and the argument ("a pizza") to an MQTT topic.
+Here I want to define a custom Google Assistant action, which will recognize a phrase with an argument, for example `ok google, make me [a pizza]`, and send both the action (`make`) and the argument (`a pizza`) as a JSON object to an MQTT topic.
 
-There's a very easy way to recognize custom phrases in Google Assistant, by using the Google Assistant and IFTTT integration: there's a Google Assistant trigger in IFTTT, which guide you to do that, I won't cover it here.
+There's a [very easy](https://www.google.com/search?q=create+custom+google+assistant+action+with+ifttt) way to recognize custom phrases in Google Assistant, by using the Google Assistant and IFTTT integration: there's a Google Assistant trigger in IFTTT which guides you to do that, I won't cover it here.
 
 But, while IFTTT is a very useful service, with plenty of integrations available, to date, there's no action that will publish to an MQTT.
 
@@ -16,7 +16,7 @@ Why use MQTT anyway? Well, I love MQTT because it's very flexible, and it can be
 
 MQTT supports a lot of different clients, from libraries in you favorite programming language (search for paho), to command line (mosquitto) to implementations in higher level tools like one of my favorite: Node-Red.
 
-The piece I'll use to glue IFTTT to MQTT together is Beebotte, which has an excelent free plan for developers.
+The piece I'll use to glue IFTTT to MQTT together is **[Beebotte](https://beebotte.com/)**, which has an excelent free plan for developers.
 
 How will it work? in Beebotte we will create a channel and a resource. Data of any form (strings, numbers,...) can be published to a resource via a webhook (API). It is also possible to suscribe to the channel/resource via MQTT.
 
