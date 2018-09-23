@@ -18,8 +18,8 @@ html {
 }
 
 body {
-	background: $white;
-  font: 18px/1.4 $helvetica;
+  background: $white;
+  font: 14px/1.4 $helvetica;
   color: $darkGray;
 }
 
@@ -287,6 +287,10 @@ nav {
 footer {
   padding: 20px 0;
   text-align: center;
+}
+
+pre, code {
+  background-color: lavender;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
