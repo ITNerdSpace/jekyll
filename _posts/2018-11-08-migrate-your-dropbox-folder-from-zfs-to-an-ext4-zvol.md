@@ -25,7 +25,7 @@ Here I stop dropbox, and copy all the content of my Dropbox folder to /mnt:
 
 ```nosynthax
 $ dropbox stop
-$ rsync -avnx /home/adumont/Dropbox/ /mnt/
+$ rsync -avx /home/adumont/Dropbox/ /mnt/
 ```
 Notice the $ prompt: I run these commands as my non-root user.
 
@@ -50,7 +50,7 @@ Then I add the new filesystem (dropbox zvol) to my /etc/fstab and mount it:
 Last step I start Dropbox, and it will pick the new filesystem as Ext4 (on a Zvol):
 
 ```nosynthax
-$ dropbox stop
+$ dropbox start
 ```
 
 Enjoy!
