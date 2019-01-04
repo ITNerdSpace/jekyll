@@ -73,4 +73,4 @@ What I miss in SchemeIt are:
 - What do you use to represent your circuits or your designs?
 - What do you miss in those tools you use?
 
-Don't hesitate to join the conversatino and leave comments below :).
+Don't hesitate to join the conversation and leave comments below :).
