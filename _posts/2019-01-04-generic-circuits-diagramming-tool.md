@@ -6,16 +6,14 @@ last_modified_at: '2019-01-04 11:32 +0100'
 title: Generic circuits diagramming tool
 image: /images/2019-01-04%2013_02_25-https___www.digikey.com_schemeit_project_.png
 ---
-## Why do I need a generic circuits diagramming tool
-
 I love to draw diagrams and create visual representations of what I do. I think it's a great way to understand what you plan to do when designing a complex system, to document it for later, and show what you've done. Not only targetting others, but first of all for yourself.
+
+## Why do I need a generic circuits diagramming tool
 
 In electronics for example, I have the need to draw circuits, representing all the components I'll use and how they are connected together.
 
 For example, I did this circuit to to program a 3.3V Arduino Pro Mini with a 5V FTDI chip and a logic level converter:
-
 ![2019-01-03 15_29_01-_CT_{}.png]({{site.baseurl}}/images/2019-01-03 15_29_01-_CT_{}.png)
-
 Similary, I enjoy designing harware in Verilog HDL, and again, when complexity arise, I need to decompose the components in modules, and represent how they are all connected together.
 
 Here's a more complex example, my [HRM CPU](https://github.com/adumont/hrm-cpu), which is made of a bunch of interconnected components:
