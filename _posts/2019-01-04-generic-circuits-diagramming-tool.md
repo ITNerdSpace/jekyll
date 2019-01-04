@@ -4,6 +4,7 @@ published: true
 author: Alexandre Dumont
 last_modified_at: '2019-01-04 11:32 +0100'
 title: Generic circuits diagramming tool
+image: /images/2019-01-04%2013_02_25-https___www.digikey.com_schemeit_project_.png
 ---
 ## Why do I need a generic circuits diagramming tool
 
