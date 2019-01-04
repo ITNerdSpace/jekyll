@@ -28,7 +28,7 @@ Now when we are speaking of designing RTL modules and sub-modules in Verilog, an
 
 ## What am I looking for?
 
-So basically what I am looking for is a diagramming tool (free and opensource would be a plus) which would comply with these 3 requirements:
+So basically what I am looking for is a diagramming tool (free and opensource would be a plus) which would comply with these requirements:
 1. Allows me to draw custom components
 2. Allows me to specify pins on each components and name each pins
 3. Allows me to connect components (by connecting their pins) with "connectors"
@@ -69,8 +69,8 @@ What I miss in SchemeIt are:
 
 ## Alternatives?
 
-Do you know of better alternatives?
-What do you use to represent your circuits or your designs?
-What do you miss in those tools you use?
+- Do you know of better alternatives?
+- What do you use to represent your circuits or your designs?
+- What do you miss in those tools you use?
 
 Don't hesitate to join the conversatino and leave comments below :).
