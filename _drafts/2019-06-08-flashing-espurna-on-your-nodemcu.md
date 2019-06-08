@@ -9,6 +9,8 @@ title: Flashing Espurna on your NodeMCU
 ---
 I have an Amica NodeMCU clone and I was thinking about trying the [ESPurna](https://github.com/xoseperez/espurna/wiki/Hardware) (means "spark" in Catalan) firmware on it.
 
+![amica_nodemcu.jpg]({{site.baseurl}}/images/amica_nodemcu.jpg)
+
 First, let's install esptool, using pip:
 
 $ sudo pip install --upgrade esptool
@@ -53,8 +55,3 @@ Stub running...
 Read 4194304 bytes at 0x0 in 373.7 seconds (89.8 kbit/s)...
 Hard resetting via RTS pin...
 
-
-
-## A New Post
-
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
