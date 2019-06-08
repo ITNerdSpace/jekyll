@@ -13,14 +13,15 @@ I have an Amica NodeMCU clone and I was thinking about trying the [ESPurna](http
 
 First, let's install esptool, using pip:
 
-```
+```nosynthax
 $ sudo pip install --upgrade esptool
 ```
 
 Plug the NodeMCU via USB to your computer, and get information about the device:
 
-```
+```nosynthax
 $ esptool.py flash_id
+
 esptool.py v2.6
 Found 1 serial ports
 Serial port /dev/ttyUSB0
@@ -42,7 +43,7 @@ In my case it's a 4MB device, so we'll use 0x400000 in the next command (adjust 
 
 Let's backup the firmware:
 
-```
+```nosynthax
 $ esptool.py --port /dev/ttyUSB0 read_flash 0x00000 0x400000 nodemcu-alex-4MB-backup.bin
 
 esptool.py v2.6
@@ -67,6 +68,7 @@ Now we're ready to flash it to the board:
 
 ```
 $ esptool.py --port /dev/ttyUSB0 write_flash --flash_size detect --flash_mode dout 0x00000 Downloads/espurna-1.13.5-nodemcu-lolin.bin
+
 esptool.py v2.6
 Serial port /dev/ttyUSB0
 Connecting....
