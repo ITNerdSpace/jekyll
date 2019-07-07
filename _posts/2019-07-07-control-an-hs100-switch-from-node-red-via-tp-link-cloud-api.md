@@ -38,5 +38,7 @@ Now we can add this new HS100 node to any Flow in our Node-Red. For example, I m
 
 Now you can easily do all kind of great stuff with your TP-Link Cloud devices, and control them from MQTT, a POST payload, a Telegram bot or even Google Assistant...
 
+For more information on the TP-Link Cloud API to control smart things, go and read my [previous post series on the TP-Link Cloud API](https://www.google.es/search?q=tplink+site%3Ahttps%3A%2F%2Fitnerd.space&oq=tplink+site%3Ahttps%3A%2F%2Fitnerd.space).
+
 
 
