@@ -4,7 +4,7 @@ published: true
 author: Alexandre Dumont
 last_modified_at: '2019-07-07 13:05 +0200'
 title: Control an HS100 switch from Node-Red via TP-Link Cloud API
-image: /images/SmartThings-1.png
+image: /images/tp-link_hs100_nodered_helloWorld.png
 ---
 In this post I'll show how to create a Node-Red subflow to control a TP-Link switch (power on/power off), using the TP-Link Cloud API.
 
