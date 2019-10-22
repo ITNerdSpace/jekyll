@@ -16,6 +16,7 @@ Lately I'm interested in:
 - Verilog
 - FPGAs
 - Robotics (Arduino, Raspberry)
+- Machine learning, Deep learning and AI
 
 ### Contact me
 
