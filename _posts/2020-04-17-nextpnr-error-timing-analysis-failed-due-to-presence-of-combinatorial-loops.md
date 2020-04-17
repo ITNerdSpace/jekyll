@@ -7,7 +7,7 @@ title: 'nextpnr error: timing analysis failed due to presence of combinatorial l
 ---
 ## Timing analysis failed due to presence of combinatorial loops
 
-When switching from ArchnePnR to NextPnR I started to get some weird errors when synthesizing my FPGA projects. The same project was synthesizing apparently fine in arachnePnR, but  guess NextPnR is more picky about some aspect. I guess it's better anyway, so the more warnings and errors we can get and fix, the more I'll learn and the better I hope the design would be.
+When switching from ArchnePnR to NextPnR I started to get some weird errors when synthesizing my FPGA projects. The same project was synthesizing apparently fine in arachnePnR, but I guess NextPnR is more picky about some aspect. I guess it's better anyway, so the more warnings and errors we can get and fix, the more I'll learn and the better I hope the design would be.
 
 One error I got was:
 
@@ -22,7 +22,8 @@ Also they asked me if I had latches in your design? I wasn't aware of having any
 Indeed, grepping yosys' output log I could find that a nasty latch has been infered:
 
 ```nosynthax
-Latch inferred for signal `\top.\hex_digit' from process `\top.$proc$top.v:66$35': $auto$proc_dlatch.cc:417:proc_dlatch$495
+Latch inferred for signal `\top.\hex_digit' from process `\top.$proc$top.v:66$35':
+$auto$proc_dlatch.cc:417:proc_dlatch$495
 ```
 
 Ok that was really something I could work with now! This pointed me to `hex_digit` in `top.v`. And there I could finally see it. Notice how `hex_digit` doesn't have a default value in the always() block (while `char_shown` does):
@@ -48,7 +49,7 @@ Ok that was really something I could work with now! This pointed me to `hex_digi
     end
 ```
 
-After fixing it, like below, I could finally pass the nextpnr step and synthesize fine!
+After fixing it, like below, (notice the `hex_digit = 4'b 0;` that gives a default value) I could finally pass the nextpnr step and synthesize fine!
 
 ```nosynthax
     always @(*) begin
