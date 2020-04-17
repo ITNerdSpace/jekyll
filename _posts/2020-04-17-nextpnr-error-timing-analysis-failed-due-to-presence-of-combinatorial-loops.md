@@ -3,8 +3,6 @@ layout: post
 published: true
 author: Alexandre Dumont
 last_modified_at: '2020-04-17 17:55 +0200'
-tags:
-  - Automaton
 title: 'nextpnr error: timing analysis failed due to presence of combinatorial loops'
 ---
 ## Timing analysis failed due to presence of combinatorial loops
