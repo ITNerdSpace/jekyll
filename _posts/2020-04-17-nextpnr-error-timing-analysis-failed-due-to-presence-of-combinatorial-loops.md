@@ -5,8 +5,6 @@ author: Alexandre Dumont
 last_modified_at: '2020-04-17 17:55 +0200'
 title: 'nextpnr error: timing analysis failed due to presence of combinatorial loops'
 ---
-## Timing analysis failed due to presence of combinatorial loops
-
 When switching from ArchnePnR to NextPnR I started to get some weird errors when synthesizing my FPGA projects. The same project was synthesizing apparently fine in arachnePnR, but I guess NextPnR is more picky about some aspect. I guess it's better anyway, so the more warnings and errors we can get and fix, the more I'll learn and the better I hope the design would be.
 
 One error I got was:
